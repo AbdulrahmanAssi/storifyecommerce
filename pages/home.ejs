@@ -1,0 +1,27 @@
+<%- include('partials/header'); %>
+<h1 class="text-center mt-5"><%= title %></h1>
+
+<div class="d-flex justify-content-evenly mt-5">
+    <% for(var i=0; i<pokimons.length; i++) {%>
+        <div class="card" style="width: 18rem;">
+            <div class="card-body">
+                <div class="d-flex">
+                    <div class="d-flex flex-column">
+                        <h5 class="card-title">
+                            <%= pokimons[i].data.name %>
+                        </h5>
+                        <h6 class="card-subtitle mb-2 text-muted">
+                            Order: <%= pokimons[i].data.order %>
+                        </h6>
+                        <h6 class="card-subtitle mb-2 text-muted">
+                            Species: <%= pokimons[i].data.species.name %>
+                        </h6>
+                    </div>
+                    <img class="ms-auto" src="<%= pokimons[i].data.sprites.front_default %>" alt="pokimon">
+                </div>
+                <a href="<%= pokimons[i].data.species.url %>" class="card-link">API URL</a>
+            </div>
+        </div>
+    <% } %>
+</div>
+<%- include('partials/footer'); %>
